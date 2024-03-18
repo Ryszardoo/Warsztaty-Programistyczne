@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Zad4</title>
+    <title>Zad5</title>
 </head>
-<body>
-<div>
+<style>
 
+    .tlo {
+        background-color: lightgray;
+        font-size: 19px;
+    }
+    .child {
+        color: red;
+        font-size: 17px;
+    }
+    .red {
+        color: red;
+    }
+</style>
+
+<body>
+<div class="tlo">
+    <p>Tekst w elemencie potomnym</p>
+    <p>Tekst w elemencie potomnym</p>
+    <div class="child">
+        <p class="red">Tekst w elemencie wnuku</p>
+    </div>
+    <p class="red">Tekst w elemencie potomnym</p>
 </div>
 </body>
+
 </html>
