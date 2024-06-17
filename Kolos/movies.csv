@@ -1,0 +1,102 @@
+ID,Tytul,Rezyser,"Rok Wydania",Gatunek,Ocena
+1,Inception,"Christopher Nolan",2010,Sci-Fi,8.8
+2,"The Godfather","Francis Ford Coppola",1972,Kryminal,9.2
+3,"The Dark Knight","Christopher Nolan",2008,Akcja,9.0
+4,"Pulp Fiction","Quentin Tarantino",1994,Kryminal,8.9
+5,"Schindlers List","Steven Spielberg",1993,Dramat,8.9
+6,"The Lord of the Rings: The Return of the King","Peter Jackson",2003,Fantasy,8.9
+7,"Fight Club","David Fincher",1999,Dramat,8.8
+8,"Forrest Gump","Robert Zemeckis",1994,Dramat,8.8
+9,Inception,"Christopher Nolan",2010,Sci-Fi,8.8
+10,"The Matrix","Lilly Wachowski",1999,Sci-Fi,8.7
+11,Goodfellas,"Martin Scorsese",1990,Kryminal,8.7
+12,"The Silence of the Lambs","Jonathan Demme",1991,Thriller,8.6
+13,Se7en,"David Fincher",1995,Thriller,8.6
+14,"The Usual Suspects","Bryan Singer",1995,Kryminal,8.5
+15,"The Lion King","Rob Minkoff",1994,Animacja,8.5
+16,"Saving Private Ryan","Steven Spielberg",1998,Wojenny,8.6
+17,Interstellar,"Christopher Nolan",2014,Sci-Fi,8.6
+18,"The Green Mile","Frank Darabont",1999,Dramat,8.6
+19,Gladiator,"Ridley Scott",2000,Akcja,8.5
+20,"The Departed","Martin Scorsese",2006,Kryminal,8.5
+21,Braveheart,"Mel Gibson",1995,Historyczny,8.4
+22,Whiplash,"Damien Chazelle",2014,Drama,8.5
+23,"Django Unchained","Quentin Tarantino",2012,Western,8.4
+24,"The Prestige","Christopher Nolan",2006,Dramat,8.5
+25,"The Dark Knight Rises","Christopher Nolan",2012,Akcja,8.4
+26,Memento,"Christopher Nolan",2000,Thriller,8.4
+27,"The Intouchables","Eric Toledano",2011,Komedia,8.5
+28,WALL-E,"Andrew Stanton",2008,Animacja,8.4
+29,"The Pianist","Roman Polanski",2002,Biograficzny,8.5
+30,"Terminator 2: Judgment Day","James Cameron",1991,Sci-Fi,8.5
+31,"Back to the Future","Robert Zemeckis",1985,Sci-Fi,8.5
+32,"The Lion King","Rob Minkoff",1994,Animacja,8.5
+33,Alien,"Ridley Scott",1979,Sci-Fi,8.4
+34,"A Clockwork Orange","Stanley Kubrick",1971,Sci-Fi,8.3
+35,"Apocalypse Now","Francis Ford Coppola",1979,Wojenny,8.4
+36,"Taxi Driver","Martin Scorsese",1976,Kryminal,8.3
+37,"American Beauty","Sam Mendes",1999,Dramat,8.3
+38,Casablanca,"Michael Curtiz",1942,Romans,8.5
+39,"Citizen Kane","Orson Welles",1941,Dramat,8.3
+40,Vertigo,"Alfred Hitchcock",1958,Thriller,8.3
+41,"North by Northwest","Alfred Hitchcock",1959,Thriller,8.3
+42,Psycho,"Alfred Hitchcock",1960,Thriller,8.5
+43,"12 Angry Men","Sidney Lumet",1957,Dramat,8.9
+44,"2001: A Space Odyssey","Stanley Kubrick",1968,Sci-Fi,8.3
+45,"Raiders of the Lost Ark","Steven Spielberg",1981,Przygodowy,8.5
+46,"The Shining","Stanley Kubrick",1980,Horror,8.4
+47,Jaws,"Steven Spielberg",1975,Thriller,8.0
+48,"The Great Dictator","Charlie Chaplin",1940,Komedia,8.4
+49,"Modern Times","Charlie Chaplin",1936,Komedia,8.5
+50,"City Lights","Charlie Chaplin",1931,Komedia,8.5
+51,"The Gold Rush","Charlie Chaplin",1925,Komedia,8.2
+52,"The General","Buster Keaton",1926,Komedia,8.2
+53,"One Flew Over the Cuckoos Nest","Milos Forman",1975,Dramat,8.7
+54,"The Grand Budapest Hotel","Wes Anderson",2014,Komedia,8.1
+55,"La La Land","Damien Chazelle",2016,Muzyczny,8.0
+56,Amadeus,"Milos Forman",1984,Biograficzny,8.3
+57,"Raging Bull","Martin Scorsese",1980,Biograficzny,8.2
+58,"Blade Runner","Ridley Scott",1982,Sci-Fi,8.1
+59,"Blade Runner 2049","Dennis Villeneuve",2017,Sci-Fi,8.0
+60,"The Big Lebowski","Ethan Coen",1998,Komedia,8.1
+61,Fargo,"Ethan Coen",1996,Kryminal,8.1
+62,"No Country for Old Men","Ethan Coen",2007,Kryminal,8.1
+63,"There Will Be Blood","Paul Thomas Anderson",2007,Dramat,8.2
+64,"The Social Network","David Fincher",2010,Biograficzny,7.8
+65,Her,"Spike Jonze",2013,Romans,8.0
+66,"The Truman Show","Peter Weir",1998,Komedia,8.1
+67,"Eternal Sunshine of the Spotless Mind","Michel Gondry",2004,Romans,8.3
+68,"The Sixth Sense","M. Night Shyamalan",1999,Thriller,8.1
+69,"The Revenant","Alejandro G. Inarritu",2015,Dramat,8.0
+70,Birdman,"Alejandro G. Inarritu",2014,Komedia,7.7
+71,Spotlight,"Tom McCarthy",2015,Dramat,8.1
+72,Argo,"Ben Affleck",2012,Thriller,7.7
+73,"The Imitation Game","Morten Tyldum",2014,Biograficzny,8.0
+74,"Dallas Buyers Club","Jean-Marc VallEe",2013,Dramat,8.0
+75,Room,"Lenny Abrahamson",2015,Dramat,8.1
+76,"Slumdog Millionaire","Danny Boyle",2008,Dramat,8.0
+77,"Million Dollar Baby","Clint Eastwood",2004,Dramat,8.1
+78,"The Wolf of Wall Street","Martin Scorsese",2013,Biograficzny,8.2
+79,"Shutter Island","Martin Scorsese",2010,Thriller,8.1
+80,"Inglourious Basterds","Quentin Tarantino",2009,Akcja,8.3
+81,Dunkirk,"Christopher Nolan",2017,Wojenny,7.9
+82,"The Shape of Water","Guillermo del Toro",2017,Fantasy,7.3
+83,Gravity,"Alfonso CuarĂłn",2013,Sci-Fi,7.7
+84,"The Martian","Ridley Scott",2015,Sci-Fi,8.0
+85,"Mad Max: Fury Road","George Miller",2015,Akcja,8.1
+86,Logan,"James Mangold",2017,Akcja,8.1
+87,"Black Swan","Darren Aronofsky",2010,Thriller,8.0
+88,"Get Out","Jordan Peele",2017,Horror,7.7
+89,"A Beautiful Mind","Ron Howard",2001,Biograficzny,8.2
+90,Gladiator,"Ridley Scott",2000,Akcja,8.5
+91,"Apollo 13","Ron Howard",1995,Dramat,7.6
+92,"The Green Book","Peter Farrelly",2018,Dramat,8.2
+93,"Bohemian Rhapsody","Bryan Singer",2018,Biograficzny,8.0
+94,"The Irishman","Martin Scorsese",2019,Kryminal,7.9
+95,Joker,"Todd Phillips",2019,Thriller,8.4
+96,Parasite,"Bong Joon-ho",2019,Dramat,8.6
+97,1917,"Sam Mendes",2019,Wojenny,8.3
+98,"Once Upon a Time in Hollywood","Quentin Tarantino",2019,Komedia,7.7
+99,"Jojo Rabbit","Taika Waititi",2019,Komedia,7.9
+100,"Knives Out","Rian Johnson",2019,Komedia,7.9
+101,Test,Test,2004,Sci-Fi,9
