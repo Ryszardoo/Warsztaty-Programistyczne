@@ -70,6 +70,5 @@ try {
     echo "Error: " . $e->getMessage();
 }
 
-// Close the database connection
-$pdo = null;
+
 ?>
