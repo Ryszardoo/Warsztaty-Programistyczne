@@ -2,11 +2,10 @@
 $servername = "szuflandia.pjwstk.edu.pl";
 $username = "s30898";
 $password = "Rys.Rako";
-$dbname = "blog";
 
 try {
     // Create a new PDO instance
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $pdo = new PDO("mysql:host=$servername", $username, $password);
     // Set the PDO error mode to exception
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
