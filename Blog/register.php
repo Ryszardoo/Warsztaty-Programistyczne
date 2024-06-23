@@ -3,6 +3,7 @@ session_start();
 require 'includes/db.php';
 require 'includes/functions.php';
 require 'includes/header.php';
+require 'includes/footer.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];

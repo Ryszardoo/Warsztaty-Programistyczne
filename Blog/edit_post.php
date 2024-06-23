@@ -1,8 +1,7 @@
 <?php
 session_start();
 require_once 'includes/db.php';
-require_once  'includes/functions.php';
-
+require_once 'includes/functions.php';
 
 // Sprawdzenie, czy użytkownik jest zalogowany
 if (!isset($_SESSION['user_id'])) {
@@ -10,13 +9,14 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Sprawdzenie, czy przekazano ID posta do edycji
+// Pobranie ID posta do edycji
 if (!isset($_GET['id'])) {
     header('Location: index.php');
     exit;
 }
 
 $postId = $_GET['id'];
+$userId = $_SESSION['user_id']; // Pobranie user_id z sesji
 
 // Pobranie danych istniejącego posta do formularza
 $stmt = $pdo->prepare('SELECT * FROM posts WHERE id = ?');
@@ -42,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare('UPDATE posts SET title = ?, content = ?, image = ? WHERE id = ?');
     $stmt->execute([$title, $content, $imagePath, $postId]);
 
+    // Logowanie akcji edycji posta
     logAction($userId, 'Edited a post');
 
     header('Location: index.php');
@@ -55,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Post</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <h1>Edit Post</h1>
@@ -64,9 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <label for="content">Content:</label><br>
     <textarea id="content" name="content" rows="4" cols="50" required><?= htmlspecialchars($post['content']) ?></textarea><br><br>
-
-    <label for="image">Image:</label><br>
-    <input type="file" id="image" name="image"><br><br>
 
     <button type="submit">Update Post</button>
 </form>

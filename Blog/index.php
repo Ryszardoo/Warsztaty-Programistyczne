@@ -3,6 +3,7 @@ session_start();
 require 'includes/db.php';
 require 'includes/functions.php';
 require 'includes/header.php';
+require 'includes/footer.php';
 
 $query = $pdo->query('SELECT * FROM posts ORDER BY date_published DESC');
 $posts = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -11,7 +12,7 @@ $posts = $query->fetchAll(PDO::FETCH_ASSOC);
 <main>
     <h1>Blog</h1>
     <?php foreach ($posts as $post): ?>
-        <article>
+        <article style="margin: 5rem">
             <h2><a href="post.php?id=<?= $post['id'] ?>"><?= sanitize($post['title']) ?></a></h2>
             <p><?= sanitize(substr($post['content'], 0, 200)) ?>...</p>
             <p><a href="post.php?id=<?= $post['id'] ?>">Read more</a></p>

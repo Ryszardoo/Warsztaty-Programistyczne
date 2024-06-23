@@ -2,6 +2,8 @@
 session_start();
 require 'includes/db.php';
 require 'includes/functions.php';
+require 'includes/header.php';
+require 'includes/footer.php';
 
 // Sprawdzenie, czy użytkownik jest zalogowany
 if (!isLoggedIn()) {
@@ -32,11 +34,12 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php if (count($messages) > 0): ?>
     <ul>
         <?php foreach ($messages as $message): ?>
-            <li>
-                <strong>From:</strong> <?php echo htmlspecialchars($message['name']); ?> (<?php echo htmlspecialchars($message['email']); ?>)<br>
-                <strong>Sent:</strong> <?php echo htmlspecialchars($message['date_sent']); ?><br>
-                <p><?php echo nl2br(htmlspecialchars($message['message'])); ?></p>
-            </li>
+            <div class="message-box">
+                <div class="from">From: <?php echo htmlspecialchars($message['name']); ?> (<?php echo htmlspecialchars($message['email']); ?>)</div>
+                <div class="sent-date">Sent: <?php echo htmlspecialchars($message['date_sent']); ?></div>
+                <div class="message"><?php echo nl2br(htmlspecialchars($message['message'])); ?></div>
+            </div>
+
         <?php endforeach; ?>
     </ul>
 <?php else: ?>

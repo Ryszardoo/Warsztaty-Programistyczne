@@ -46,26 +46,39 @@ $comments = $comments_stmt->fetchAll();
 </head>
 <body>
 <?php include 'includes/header.php'; ?>
-<h1><?php echo htmlspecialchars($post['title']); ?></h1>
-<p><?php echo htmlspecialchars($post['content']); ?></p>
-<p>By: <?php echo htmlspecialchars($post['username']); ?></p>
-<p>Published on: <?php echo htmlspecialchars($post['date_published']); ?></p>
+
+<div class="post-container">
+    <h1><?php echo htmlspecialchars($post['title']); ?></h1>
+    <div class="post-header">
+        <p class="author">By: <?php echo htmlspecialchars($post['username']); ?></p>
+        <p class="published-date">Published on: <?php echo htmlspecialchars($post['date_published']); ?></p>
+    </div>
+    <p class="post-content"><?php echo htmlspecialchars($post['content']); ?></p>
+</div>
+
 
 <?php if (isLoggedIn() && ($_SESSION['user_id'] == $post['user_id'] || $_SESSION['user_role'] == 'admin')): ?>
-    <a href="edit_post.php?id=<?php echo $post['id']; ?>">Edit</a>
-    <form action="delete_post.php" method="post" style="display:inline;">
+
+    <form action="edit_post.php" method="get" style="display: inline;">
+        <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
+        <button type="submit" style="margin-left: 10px">Edit</button>
+    </form>
+
+    <form action="delete_post.php" method="post" style="display: inline;">
         <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
         <button type="submit">Delete</button>
     </form>
+
 <?php endif; ?>
 
 
-<div class="navigation">
+
+<div class="flex-container">
     <?php if ($prev_post): ?>
-        <a href="post.php?id=<?php echo $prev_post['id']; ?>">Previous Post</a>
+        <a href="post.php?id=<?php echo $prev_post['id']; ?>" class="button-style">Previous Post</a>
     <?php endif; ?>
     <?php if ($next_post): ?>
-        <a href="post.php?id=<?php echo $next_post['id']; ?>">Next Post</a>
+        <a href="post.php?id=<?php echo $next_post['id']; ?>" class="button-style">Next Post</a>
     <?php endif; ?>
 </div>
 
@@ -73,7 +86,7 @@ $comments = $comments_stmt->fetchAll();
 <?php foreach ($comments as $comment): ?>
     <div class="comment">
         <p><?php echo htmlspecialchars($comment['content']); ?></p>
-        <p>By: <?php echo htmlspecialchars($comment['username'] ?? 'Guest'); ?></p>
+        <p>By: <?php echo htmlspecialchars(isset($comment['username']) ? $comment['username'] : 'Guest'); ?></p>
         <p>On: <?php echo htmlspecialchars($comment['date_added']); ?></p>
     </div>
 <?php endforeach; ?>
@@ -85,7 +98,7 @@ $comments = $comments_stmt->fetchAll();
     <button type="submit">Submit</button>
 </form>
 
-<?php if ($post['user_id'] != $_SESSION['user_id']): ?>
+<?php if (!isLoggedIn() || (isset($_SESSION['user_id']) && $post['user_id'] != $_SESSION['user_id'])): ?>
     <h3>Send a Message to the Author</h3>
     <form action="send_message.php" method="post">
         <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">

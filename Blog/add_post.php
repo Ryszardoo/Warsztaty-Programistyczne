@@ -1,7 +1,9 @@
 <?php
 session_start();
-require_once 'includes/db.php';
-require_once 'includes/functions.php';
+require 'includes/db.php';
+require 'includes/functions.php';
+require 'includes/header.php';
+require 'includes/footer.php';
 
 // Sprawdzenie, czy użytkownik jest zalogowany
 if (!isLoggedIn()) {

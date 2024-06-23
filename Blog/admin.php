@@ -2,6 +2,8 @@
 session_start();
 require 'includes/db.php';
 require 'includes/functions.php';
+require 'includes/header.php';
+require 'includes/footer.php';
 
 // Sprawdzenie, czy użytkownik jest zalogowany i ma rolę admina
 if (!isLoggedIn() || $_SESSION['user_role'] !== 'admin') {
@@ -96,7 +98,10 @@ $logs = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <td><?php echo htmlspecialchars($post['author']); ?></td>
             <td>
                 <?php if ($_SESSION['user_id'] == $post['user_id'] || $_SESSION['user_role'] == 'admin'): ?>
-                    <a href="edit_post.php?id=<?php echo $post['id']; ?>">Edit</a>
+                    <form action="edit_post.php" method="get" style="display: inline">
+                        <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
+                        <button type="submit">Edit</button>
+                    </form>
                     <form action="delete_post.php" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
                         <button type="submit">Delete</button>
