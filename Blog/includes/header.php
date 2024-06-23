@@ -16,7 +16,7 @@ require_once 'includes/functions.php';
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
-            <?php require_once ('functions.php');
+            <?php require_once('functions.php');
             if (isLoggedIn()): ?>
                 <li><a href="add_post.php">Add Post</a></li>
                 <li><a href="inbox.php">Inbox</a></li>

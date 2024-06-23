@@ -9,7 +9,6 @@ function isAdmin() {
 
 
 function isAuthor() {
-    // zakładamy, że użytkownik ma rolę "author"
     return isset($_SESSION['role']) && $_SESSION['role'] === 'author';
 }
 
