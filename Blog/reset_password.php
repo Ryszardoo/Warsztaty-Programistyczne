@@ -5,7 +5,6 @@ require 'includes/functions.php';
 require 'includes/header.php';
 require 'includes/footer.php';
 
-// Sprawdzenie, czy użytkownik jest zalogowany
 if (!isLoggedIn()) {
     header('Location: login.php');
     exit;
@@ -18,24 +17,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $confirmPassword = $_POST['confirm_password'];
     $userId = $_SESSION['user_id'];
 
-    // Sprawdzenie, czy nowe hasło i potwierdzenie hasła są takie same
+    // Sprawdzamy czy nowe i stare hasło nie pokrywają się
     if ($newPassword !== $confirmPassword) {
         echo 'New password and confirm password do not match.';
         exit;
     }
 
-    // Pobranie obecnego hasła użytkownika z bazy danych
+    // Pobieramy obecne hasło z bazy danych
     $stmt = $pdo->prepare('SELECT password FROM users WHERE id = ?');
     $stmt->execute([$userId]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Sprawdzenie, czy obecne hasło jest poprawne
+    // Sprawdzamy czy użytkownik pobrał poprawne hasło
     if (!password_verify($currentPassword, $user['password'])) {
         echo 'Current password is incorrect.';
         exit;
     }
 
-    // Aktualizacja hasła użytkownika
+    // Aktualizujemy w bazie danych hasło
     $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
     $stmt = $pdo->prepare('UPDATE users SET password = ? WHERE id = ?');
     $stmt->execute([$hashedPassword, $userId]);

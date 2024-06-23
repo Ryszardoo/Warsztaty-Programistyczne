@@ -3,7 +3,6 @@ session_start();
 require 'includes/db.php';
 require 'includes/functions.php';
 
-// Sprawdzenie, czy użytkownik jest zalogowany i jest autorem
 if (!isLoggedIn() || !isAuthor()) {
     header('Location: login.php');
     exit;
@@ -11,7 +10,7 @@ if (!isLoggedIn() || !isAuthor()) {
 
 $user_id = $_SESSION['user_id'];
 
-// Pobranie wiadomości dla zalogowanego autora
+// Pobieramy wiadomości dla zalogowanego autora
 $stmt = $pdo->prepare('SELECT * FROM messages WHERE author_id = ? ORDER BY date_sent DESC');
 $stmt->execute([$user_id]);
 $messages = $stmt->fetchAll();

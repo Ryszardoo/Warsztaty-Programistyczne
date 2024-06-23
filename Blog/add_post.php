@@ -5,7 +5,6 @@ require 'includes/functions.php';
 require 'includes/header.php';
 require 'includes/footer.php';
 
-// Sprawdzenie, czy użytkownik jest zalogowany
 if (!isLoggedIn()) {
     header('Location: login.php');
     exit;
@@ -15,9 +14,9 @@ if (!isLoggedIn()) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
     $content = $_POST['content'];
-    $userId = $_SESSION['user_id']; // Pobranie user_id z sesji
+    $userId = $_SESSION['user_id'];
 
-    // Dodanie nowego posta do bazy danych
+    // Dodajemy nowy post do bazy danych
     $stmt = $pdo->prepare('INSERT INTO posts (title, content, user_id, date_published) VALUES (?, ?, ?, NOW())');
     $stmt->execute([$title, $content, $userId]);
 
@@ -34,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Post</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- Stylizacja, jeśli używasz CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <h1>Add Post</h1>

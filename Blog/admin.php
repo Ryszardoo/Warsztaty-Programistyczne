@@ -5,23 +5,22 @@ require 'includes/functions.php';
 require 'includes/header.php';
 require 'includes/footer.php';
 
-// Sprawdzenie, czy użytkownik jest zalogowany i ma rolę admina
 if (!isLoggedIn() || $_SESSION['user_role'] !== 'admin') {
     header('Location: login.php');
     exit;
 }
 
-// Pobieranie wszystkich użytkowników z bazy danych
+// Pobieramy wszystkich użytkowników z bazy danych
 $stmt = $pdo->prepare('SELECT id, username, email, role FROM users');
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Pobieranie wszystkich postów z bazy danych
+// Pobieramy wszystkie posty z bazy danych
 $stmt = $pdo->prepare('SELECT posts.id, posts.title, posts.content, posts.date_published, posts.user_id, users.username AS author FROM posts JOIN users ON posts.user_id = users.id');
 $stmt->execute();
 $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Pobieranie logów z bazy danych
+// Pobieramy logi z bazy danych
 $stmt = $pdo->prepare('SELECT logs.id, users.username, logs.action, logs.timestamp FROM logs JOIN users ON logs.user_id = users.id ORDER BY logs.timestamp DESC');
 $stmt->execute();
 $logs = $stmt->fetchAll(PDO::FETCH_ASSOC);

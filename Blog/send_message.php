@@ -7,9 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $_POST['message'];
-    $postId = $_POST['post_id']; // ID posta, którego dotyczy wiadomość
+    $postId = $_POST['post_id'];
 
-    // Pobranie ID autora posta
+    // Pobieramy ID autora posta, żeby wiedzieć do kogo ma trafić wiadomość
     $stmt = $pdo->prepare('SELECT user_id FROM posts WHERE id = ?');
     $stmt->execute([$postId]);
     $authorId = $stmt->fetchColumn();

@@ -3,22 +3,20 @@ session_start();
 require_once 'includes/db.php';
 require_once 'includes/functions.php';
 
-// Sprawdzenie, czy użytkownik jest zalogowany
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
 }
 
-// Pobranie ID posta do edycji
 if (!isset($_GET['id'])) {
     header('Location: index.php');
     exit;
 }
 
 $postId = $_GET['id'];
-$userId = $_SESSION['user_id']; // Pobranie user_id z sesji
+$userId = $_SESSION['user_id'];
 
-// Pobranie danych istniejącego posta do formularza
+// Pobieramy dane istniejącego posta do formularza
 $stmt = $pdo->prepare('SELECT * FROM posts WHERE id = ?');
 $stmt->execute([$postId]);
 $post = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -30,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $image = $_FILES['image'];
 
     // Obsługa uploadu nowego obrazka
-    $imagePath = $post['image']; // Zachowaj istniejący obrazek, jeśli nie jest wymagana aktualizacja
+    $imagePath = $post['image']; // Jeśli nie jest wymagana zmiana obrazka to zostawiamy po prostu ten co był
     if ($image['size'] > 0) {
         $targetDir = 'uploads/';
         $targetFile = $targetDir . basename($image['name']);
@@ -38,11 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $imagePath = basename($image['name']);
     }
 
-    // Aktualizacja posta w bazie danych
+    // Aktualizujemy posta w bazie danych
     $stmt = $pdo->prepare('UPDATE posts SET title = ?, content = ?, image = ? WHERE id = ?');
     $stmt->execute([$title, $content, $imagePath, $postId]);
 
-    // Logowanie akcji edycji posta
     logAction($userId, 'Edited a post');
 
     header('Location: index.php');

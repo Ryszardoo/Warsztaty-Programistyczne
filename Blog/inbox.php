@@ -5,16 +5,14 @@ require 'includes/functions.php';
 require 'includes/header.php';
 require 'includes/footer.php';
 
-// Sprawdzenie, czy użytkownik jest zalogowany
 if (!isLoggedIn()) {
     header('Location: login.php');
     exit;
 }
 
-// Pobranie ID zalogowanego użytkownika
 $userId = $_SESSION['user_id'];
 
-// Pobranie wiadomości skierowanych do zalogowanego użytkownika
+// Pobieramy wiadomości z bazy danych dla zalogowanego użytkownika
 $stmt = $pdo->prepare('SELECT * FROM messages WHERE author_id = ? ORDER BY date_sent DESC');
 $stmt->execute([$userId]);
 $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -26,7 +24,7 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inbox</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- Stylizacja, jeśli używasz CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <h1>Inbox</h1>

@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
     $password_confirm = $_POST['password_confirm'];
 
+    //Szyfrujemy hasło i wrzucamy do bazy danych
     if ($password === $password_confirm) {
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
 

@@ -3,7 +3,6 @@ session_start();
 require 'includes/db.php';
 require 'includes/functions.php';
 
-// Pobranie ID posta z parametru GET
 if (!isset($_GET['id'])) {
     header('Location: index.php');
     exit;
@@ -11,7 +10,7 @@ if (!isset($_GET['id'])) {
 
 $post_id = $_GET['id'];
 
-// Pobranie informacji o poście
+// Pobieramy informacje o poście z bazy danych
 $stmt = $pdo->prepare('SELECT posts.*, users.username, users.id as user_id FROM posts LEFT JOIN users ON posts.user_id = users.id WHERE posts.id = ?');
 $stmt->execute([$post_id]);
 $post = $stmt->fetch();
@@ -21,7 +20,7 @@ if (!$post) {
     exit;
 }
 
-// Pobranie poprzedniego i następnego posta
+// Pobieramy poprzedni i następny post
 $prev_stmt = $pdo->prepare('SELECT id FROM posts WHERE id < ? ORDER BY id DESC LIMIT 1');
 $prev_stmt->execute([$post_id]);
 $prev_post = $prev_stmt->fetch();
@@ -30,7 +29,7 @@ $next_stmt = $pdo->prepare('SELECT id FROM posts WHERE id > ? ORDER BY id ASC LI
 $next_stmt->execute([$post_id]);
 $next_post = $next_stmt->fetch();
 
-// Pobranie komentarzy dla posta
+// Pobieramy komentarze z bazy danych dla danego posta
 $comments_stmt = $pdo->prepare('SELECT comments.*, users.username FROM comments LEFT JOIN users ON comments.author_id = users.id WHERE comments.post_id = ? ORDER BY comments.date_added ASC');
 $comments_stmt->execute([$post_id]);
 $comments = $comments_stmt->fetchAll();
